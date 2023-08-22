@@ -13,7 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class ViewController {
+public class ViewController implements Initializable {
 	
 	@FXML
 	private TextField txtNumber1;
@@ -39,5 +39,13 @@ public class ViewController {
 			Alerts.showAlerts("ERROR", "Parse error", e.getMessage(), Alert.AlertType.ERROR);
 		}
 	}
-}
 
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		Constraints.setTextFieldDouble(txtNumber1);
+		Constraints.setTextFieldDouble(txtNumber2);
+		Constraints.setTextFieldMaxLength(txtNumber1, 5);
+		Constraints.setTextFieldMaxLength(txtNumber2, 5);
+		
+	}
+}
